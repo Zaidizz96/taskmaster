@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TaskMaster</string>
+    <string name="welcoming">Welcome To Our App</string>
+    <string name="AppTitle">TaskMaster</string>
+</resources>
