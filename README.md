@@ -12,6 +12,8 @@ TaskMaster is an Android application designed to help you manage your tasks and 
 ## Screenshots
 
 ![Homepage](screenshots/Taskmaster-home-page-sreenshot-1.png)
+![AddTaskPage](screenshots/addTask%20page%20_screenshot%20.png)
+![AllTaskPage](screenshots/allTask%20page_screenshot.png)
 
 ## Setup
 
