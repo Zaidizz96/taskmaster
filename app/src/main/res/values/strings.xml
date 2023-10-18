@@ -2,4 +2,19 @@
     <string name="app_name">TaskMaster</string>
     <string name="welcoming">Welcome To Our App</string>
     <string name="AppTitle">TaskMaster</string>
+    <string name="header_title">TaskMaster</string>
+    <string name="username">Enter Your Username</string>
+    <string name="Username_hint">Username</string>
+    <string name="save">Save</string>
+    <string name="titleDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ullamcorper tellus sed lobortis feugiat. Phasellus id gravida urna, vestibulum vestibulum metus. Donec lorem dui, mollis eget purus vitae, varius vehicula tellus. Sed sit amet fermentum odio, a pulvinar dui. Suspendisse molestie accumsan vulputate. Duis nec venenatis libero. Integer varius interdum turpis non dapibus. Cras aliquet aliquet lectus, sagittis tincidunt purus. Pellentesque et ornare risus.</string>
+    <string name="task_title">Task Title</string>
+    <string name="type_here">type here</string>
+    <string name="task_description">Task Description</string>
+    <string name="submitted">Submitted!</string>
+    <string name="all_tasks">All Tasks</string>
+    <string name="add_task">Add Task</string>
+    <string name="settings">Settings</string>
+    <string name="visiting_my_neighbor">Visiting my neighbor</string>
+    <string name="going_to_gym">Going to gym</string>
+    <string name="taskmaster">TaskMaster</string>
 </resources>
