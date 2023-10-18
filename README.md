@@ -9,11 +9,16 @@ TaskMaster is an Android application designed to help you manage your tasks and 
    - Implemented the "Add a Task" page, allowing users to input task details (title and body) and display a "submitted!" label when the submit button is clicked.
    - Added the "All Tasks" page, which features a back button and provides the structure for future functionality.
 
+- **Day 2 (October 18, 2023):**
+   - Modify the home page to have three hardcoded button tasks.
+   - Implemented a "Task Detail" page to display detailed information about a selected task.
+   - Developed a "Settings" page for users to enter and save their usernames.
+   - Enhanced the home page to display the user's tasks using their username from the "Settings" page
 ## Screenshots
 
-![Homepage](screenshots/Taskmaster-home-page-sreenshot-1.png)
-![AddTaskPage](screenshots/addTask%20page%20_screenshot%20.png)
-![AllTaskPage](screenshots/allTask%20page_screenshot.png)
+![Homepage](screenshots/Home-Page-v2-log.png)
+![UserSettingPage](screenshots/User-Setting-page.png)
+![TaskDetailPage](screenshots/Task-Details-Page.png)
 
 ## Setup
 
@@ -32,10 +37,16 @@ To get started with the TaskMaster Android app:
 ### Homepage
 
 The main page of the app includes:
-- A heading at the top of the page.
-- An image to mock the "My Tasks" view.
-- Buttons at the bottom of the page for navigating to the "Add Tasks" and "All Tasks" pages.
+- Three task buttons with hardcoded titles.
+- Navigate to the "Task Detail" page when a task title is tapped.
+- Title on the "Task Detail" page matches the selected task.
+- Improved design and user interface.
 
+### Task Detail Page:
+- Display task title and description.
+
+### Settings Page:
+- Allow users to enter and save their usernames.
 ### Add a Task
 
 On the "Add a Task" page, users can:
