@@ -14,11 +14,17 @@ TaskMaster is an Android application designed to help you manage your tasks and 
    - Implemented a "Task Detail" page to display detailed information about a selected task.
    - Developed a "Settings" page for users to enter and save their usernames.
    - Enhanced the home page to display the user's tasks using their username from the "Settings" page
+  
+- **Day 3 (October 23, 2023):**
+  - Added the RecyclerView functionality to the homepage.
+  - Created a Task class with title, body, and state properties.
+  - Populated the RecyclerView with at least three hardcoded Task instances.
+  - Enabled tapping on tasks in the RecyclerView to launch the detail page with the correct Task title displayed.
 ## Screenshots
 
-![Homepage](screenshots/Home-Page-v2-log.png)
+![Homepage](screenshots/Screenshot-lab28-homepae.png)
 ![UserSettingPage](screenshots/User-Setting-page.png)
-![TaskDetailPage](screenshots/Task-Details-Page.png)
+![TaskDetailPage](screenshots/Screenshot-lab28-taskdetails.png)
 
 ## Setup
 
@@ -41,6 +47,7 @@ The main page of the app includes:
 - Navigate to the "Task Detail" page when a task title is tapped.
 - Title on the "Task Detail" page matches the selected task.
 - Improved design and user interface.
+- Utilizes RecyclerView for displaying Task data.
 
 ### Task Detail Page:
 - Display task title and description.
@@ -61,10 +68,9 @@ The "All Tasks" page features:
 
 ## Resources
 
-For Android development and user interface (UI) design, you can refer to the following resources:
-
 - [Android Buttons Documentation](https://developer.android.com/guide/topics/ui/controls/button)
 - [Android UI Events Documentation](https://developer.android.com/guide/topics/ui/ui-events)
+- [RecyclerView Documentation](https://developer.android.com/guide/topics/ui/layout/recyclerview)
 
 Start building your TaskMaster app and have fun developing your project!
 

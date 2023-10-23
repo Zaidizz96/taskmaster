@@ -17,4 +17,6 @@
     <string name="visiting_my_neighbor">Visiting my neighbor</string>
     <string name="going_to_gym">Going to gym</string>
     <string name="taskmaster">TaskMaster</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Blank Task Name</string>
 </resources>
