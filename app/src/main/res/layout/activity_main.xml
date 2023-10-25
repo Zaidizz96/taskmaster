@@ -73,7 +73,6 @@
         android:layout_width="349dp"
         android:layout_height="211dp"
         android:layout_marginTop="40dp"
-        android:background="@drawable/recyvler_view_border"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"

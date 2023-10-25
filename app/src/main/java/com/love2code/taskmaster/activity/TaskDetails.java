@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.love2code.taskmaster.R;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class TaskDetails extends AppCompatActivity {
@@ -23,17 +24,23 @@ public class TaskDetails extends AppCompatActivity {
         Intent callingIntent = getIntent();
         String taskTitle = null;
         String taskBody = null;
+        String taskState = null;
+
 
         if(callingIntent != null){
             taskTitle = callingIntent.getStringExtra(MainActivity.TASK_TITLE_EXTRA_TAG);
             taskBody = callingIntent.getStringExtra(MainActivity.TASK_BODY_EXTRA_TAG);
+            taskState = callingIntent.getStringExtra(MainActivity.TASK_STATE_EXTRA_TAG);
+
         }
 
         TextView taskDetailTitle = findViewById(R.id.taskDetailTitle);
         TextView taskDetailBody = findViewById(R.id.taskDetailDescription);
+        TextView taskDetailState = findViewById(R.id.task_state);
 
         taskDetailTitle.setText(Objects.requireNonNullElse(taskTitle, "no task title specified!!!!"));
         taskDetailBody.setText(Objects.requireNonNullElse(taskBody , "no task description specified"));
+        taskDetailState.setText(Objects.requireNonNullElse(taskState , "no task state specified"));
     }
 
 

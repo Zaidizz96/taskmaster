@@ -15,6 +15,7 @@ import com.love2code.taskmaster.activity.MainActivity;
 import com.love2code.taskmaster.activity.TaskDetails;
 import com.love2code.taskmaster.activity.model.Task;
 
+import java.util.Date;
 import java.util.List;
 
 public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRecyclerViewAdapter.TasksViewHolder> {
@@ -39,6 +40,8 @@ public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRe
         TextView taskFragmentTextView = holder.itemView.findViewById(R.id.textViewFragment);
         String taskTitle = tasks.get(position).getTitle();
         String taskBody = tasks.get(position).getBody();
+        String taskState = tasks.get(position).getState().toString();
+        Date createdAt = tasks.get(position).dateCreated;
         taskFragmentTextView.setText(taskTitle);
 
         View taskViewHolder = holder.itemView;
@@ -46,6 +49,8 @@ public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRe
             Intent goToTaskDetailsPage = new Intent(callingActivity , TaskDetails.class);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_TITLE_EXTRA_TAG ,taskTitle);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_BODY_EXTRA_TAG , taskBody);
+            goToTaskDetailsPage.putExtra(MainActivity.TASK_STATE_EXTRA_TAG , taskState);
+            goToTaskDetailsPage.putExtra(MainActivity.TASK_DATE_EXTRA_TAG , createdAt);
             callingActivity.startActivity(goToTaskDetailsPage);
         });
 
