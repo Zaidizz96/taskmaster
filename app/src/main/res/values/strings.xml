@@ -19,4 +19,10 @@
     <string name="taskmaster">TaskMaster</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Blank Task Name</string>
+    <string name="my_task">My Task</string>
+    <string name="save_task">save task</string>
+    <string name="add_your_task">Add Your Task</string>
+    <string name="task_state">Task State</string>
 </resources>
+
+

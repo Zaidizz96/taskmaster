@@ -1,17 +1,28 @@
 package com.love2code.taskmaster.activity.model;
 
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+
+import java.util.Date;
+
+@Entity
 public class Task {
+
+    @PrimaryKey(autoGenerate = true)
+    public Long id;
     String title;
     String body;
+    public java.util.Date dateCreated;
     TaskState state;
 
     public Task() {
     }
 
-    public Task(String title, String body, TaskState state) {
+    public Task(String title, String body, Date dateCreated , TaskState state) {
         this.title = title;
         this.body = body;
         this.state = state;
+        this.dateCreated=dateCreated;
     }
 
     public String getTitle() {

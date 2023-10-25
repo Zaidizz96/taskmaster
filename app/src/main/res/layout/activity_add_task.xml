@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".activity.AddTask">
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="368dp"
+        android:text="@string/task_state"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
     <FrameLayout
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
@@ -30,7 +42,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
         android:layout_marginBottom="47dp"
-        android:text="Add Your Task"
+        android:text="@string/add_your_task"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/taskTitle"
         app:layout_constraintEnd_toEndOf="parent"
@@ -59,85 +71,91 @@
         tools:ignore="MissingConstraints">
 
         <!-- Username Label and Edit Text -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-        </LinearLayout>
 
         <!-- Password Label and Edit Text -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
-
-        </LinearLayout>
 
     </LinearLayout>
 
     <EditText
         android:id="@+id/taskBody"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edittext_border"
         android:hint="@string/type_here"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.43"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.455"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="240dp"
         android:text="@string/task_description"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="132dp"
-        android:text="Task Title"
+        android:layout_marginTop="128dp"
+        android:text="@string/task_title"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.047"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
 
     <EditText
         android:id="@+id/taskTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="My Task"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:background="@drawable/edittext_border"
+        android:hint="@string/my_task"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
-        app:layout_constraintVertical_bias="0.228"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintVertical_bias="0.265" />
 
     <TextView
         android:id="@+id/submittedLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/submitted"
-        android:visibility="gone"
         android:textSize="24sp"
+        android:visibility="gone"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/submittedTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="save task"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.07"
+        android:layout_marginStart="16dp"
+        android:text="@string/save_task"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/taskBody" />
+        app:layout_constraintTop_toBottomOf="@+id/taskState"
+        app:layout_constraintVertical_bias="0.21" />
+
+    <Spinner
+        android:id="@+id/taskState"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="404dp"
+        android:background="@drawable/edittext_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
