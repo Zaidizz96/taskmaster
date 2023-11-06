@@ -26,6 +26,9 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   - Modified the "Add a Task" form to save task data in the local database.
   - Refactored the homepage to display tasks from the local database.
   - Updated the detail page to show task description and status.
+  
+- **Day 5 (November 6, 2023):**
+  - Added Espresso UI testing to enhance the app's quality and reliability.
 
 ## Screenshots
 
@@ -68,6 +71,15 @@ On the "Add a Task" page, users can input details about a new task, including a 
 The "All Tasks" page currently features a back button and will be enhanced to display tasks from the local database, allowing users to view all their tasks at a glance.
 
 
+## Espresso Testing
+1. **Assert Important UI Elements**:
+  - UI elements that are crucial for the app's functionality are verified to be displayed on the page, ensuring a seamless user experience.
+
+2. **Task Detail Display Test**:
+  - A test has been added to tap on a task, and the resulting activity is tested to ensure that it displays the name of the selected task correctly.
+
+3. **Username Edit Test**:
+  - The user's ability to edit their username has been tested, and it is verified that the updated username is correctly displayed on the homepage.
 
 ## Resources
 
