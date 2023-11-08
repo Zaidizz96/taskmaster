@@ -1,0 +1,32 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
+
+type Todo @model {
+  id: ID!
+  name: String!
+  description: String
+}
+
+# after we change this file , we have to do these steps:
+#1. in cli run this " amplify codegon models "
+#2. "amplify api update -> disable conflict resolution"
+#3. "amplify push"
+
+type Task @model @auth(rules: [{allow: public}]){
+
+  id : ID!
+  title : String!
+  body : String
+  dateCreated : AWSDateTime
+  state : TaskState
+
+}
+
+
+enum TaskState {
+  New
+  Assigned
+  In_progress
+  Complete
+}

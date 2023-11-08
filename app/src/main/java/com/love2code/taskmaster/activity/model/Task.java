@@ -1,14 +1,9 @@
 package com.love2code.taskmaster.activity.model;
-
-import androidx.room.Entity;
-import androidx.room.PrimaryKey;
-
 import java.util.Date;
 
-@Entity
+
 public class Task {
 
-    @PrimaryKey(autoGenerate = true)
     public Long id;
     String title;
     String body;
