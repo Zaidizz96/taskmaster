@@ -2,35 +2,37 @@ package com.love2code.taskmaster.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.room.Room;
 
+import com.amplifyframework.api.graphql.model.ModelMutation;
+import com.amplifyframework.core.Amplify;
+import com.amplifyframework.core.model.temporal.Temporal;
+import com.amplifyframework.datastore.generated.model.Task;
+import com.amplifyframework.datastore.generated.model.TaskState;
 import com.love2code.taskmaster.R;
-import com.love2code.taskmaster.activity.database.TasksDatabase;
-import com.love2code.taskmaster.activity.model.Task;
-import com.love2code.taskmaster.activity.model.TaskState;
+
 
 import java.util.Date;
 
 public class AddTask extends AppCompatActivity {
 
-    TasksDatabase tasksDatabase;
-    public static final String DATABASE_NAME="tasks";
+    public static final String TAG = "Add Task Activity";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
-        instantiateDatabase();
+
 
         Spinner taskStateSpinner =(Spinner)findViewById(R.id.taskState);
         taskStateSpinner.setAdapter(new ArrayAdapter<>(
@@ -43,13 +45,25 @@ public class AddTask extends AppCompatActivity {
         ImageView goToHomePage = findViewById(R.id.backIcon);
 
         submittedTaskButton.setOnClickListener(v -> {
-            Task task = new Task(
-                    ((EditText)findViewById(R.id.taskTitle)).getText().toString(),
-                    ((EditText)findViewById(R.id.taskBody)).getText().toString(),
-                    new Date(),
-                    TaskState.fromString(taskStateSpinner.getSelectedItem().toString())
+
+            String title = ((EditText)findViewById(R.id.taskTitle)).getText().toString();
+            String body = ((EditText)findViewById(R.id.taskBody)).getText().toString();
+            String currentDateString = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
+
+            Task newtask = Task.builder()
+                    .title(title)
+                    .body(body)
+                    .dateCreated(new Temporal.DateTime(new Date() , 0))
+                    .state((TaskState) taskStateSpinner.getSelectedItem())
+                    .build();
+
+            Amplify.API.mutate(
+                    ModelMutation.create(newtask),
+                    successResponse -> Log.i(TAG , "add task successfully"),
+                    failureResponse -> Log.e(TAG , "add task failed" + failureResponse)
+
             );
-            tasksDatabase.taskDao().addTask(task);
+
         });
 
 //        final TextView labelMessage = (TextView) findViewById(R.id.submittedLabel);
@@ -87,13 +101,4 @@ public class AddTask extends AppCompatActivity {
 //        return taskStateSpinner;
 //    }
 
-    void instantiateDatabase(){
-        tasksDatabase = Room.databaseBuilder(
-                        getApplicationContext(),
-                        TasksDatabase.class,
-                        DATABASE_NAME).
-                fallbackToDestructiveMigration().
-                allowMainThreadQueries().build();
-        tasksDatabase.taskDao().findAll();
-    }
 }

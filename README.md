@@ -29,6 +29,12 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   
 - **Day 5 (November 6, 2023):**
   - Added Espresso UI testing to enhance the app's quality and reliability.
+  
+- **Day 6 (November 8, 2023):**
+  - Integrated AWS Amplify for cloud data storage to create a scalable backend for the app.
+  - Used the Amplify CLI to create a Task resource in DynamoDB that replicates our existing Task schema.
+  - Updated all references to the Task data to access data in DynamoDB using AWS Amplify.
+
 
 ## Screenshots
 
@@ -52,9 +58,13 @@ To get started with the TaskMaster Android app:
 
 ## Features
 
+## AWS Amplify Integration
+
+We have integrated AWS Amplify to add cloud functionality to our TaskMaster app. Here's what we did on Day 6:
+
 ### Homepage
 
-The main page of the app now includes a dynamic RecyclerView to display the lists of tasks, making it easy for users to view and manage their tasks. This replaces the previous approach of three hardcoded task buttons. Users can tap on a task to navigate to the "Task Detail" page.
+- We refactored the homepage's RecyclerView to display all Task entities from DynamoDB. Now, users can view their tasks from the cloud in the app.
 
 ### Task Detail Page:
 - Display task title, description, and status.
@@ -64,7 +74,7 @@ The main page of the app now includes a dynamic RecyclerView to display the list
 
 ### Add a Task
 
-On the "Add a Task" page, users can input details about a new task, including a title and a body. Clicking the "submit" button saves the task in the local database and displays a "submitted!" label on the page.
+- We modified the "Add Task" form to save the data entered as a Task to DynamoDB. When users add a new task, it's now stored in the cloud.
 
 ### All Tasks
 
