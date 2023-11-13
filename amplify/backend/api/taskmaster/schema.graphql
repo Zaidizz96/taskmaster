@@ -20,13 +20,20 @@ type Task @model @auth(rules: [{allow: public}]){
   body : String
   dateCreated : AWSDateTime
   state : TaskState
+  teamId : ID! @index(name : "byTeam" , sortKeyFields: ["title"])
+  team : Team @belongsTo(fields: ["teamId"])
 
 }
-
 
 enum TaskState {
   New
   Assigned
   In_progress
   Complete
+}
+
+type Team @model @auth(rules : [{allow : public}]){
+  id : ID!
+  name : String!
+  tasks: [Task] @hasMany(indexName : "byTeam" , fields: ["id"])
 }

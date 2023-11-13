@@ -7,6 +7,32 @@
     android:layout_height="match_parent"
     tools:context=".activity.SettingsPage">
 
+    <Spinner
+        android:id="@+id/teamSpinnerSettingsPage"
+        android:layout_width="370dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.39"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTeamSelection" />
+
+    <TextView
+        android:id="@+id/textViewTeamSelection"
+        android:layout_width="179dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="260dp"
+        android:layout_marginEnd="216dp"
+        android:background="@color/your_color"
+        android:padding="2dp"
+        android:text="Select Your Team"
+        android:textColor="@color/material_dynamic_primary100"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        tools:ignore="MissingConstraints" />
+
     <FrameLayout
         android:id="@+id/frameLayout3"
         android:layout_width="match_parent"
@@ -58,7 +84,7 @@
         android:id="@+id/saveUserSettingButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="184dp"
         android:text="@string/save"
         app:layout_constraintTop_toBottomOf="@+id/usernameInputEditText"
         tools:ignore="MissingConstraints"

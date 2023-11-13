@@ -2,16 +2,16 @@ package com.love2code.taskmaster.activity;
 
 
 import static androidx.test.espresso.Espresso.onView;
-import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
-import static androidx.test.espresso.action.ViewActions.replaceText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
+import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
+import static org.hamcrest.Matchers.is;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,65 +27,52 @@ import com.love2code.taskmaster.R;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.hamcrest.core.IsInstanceOf;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class EditUserNameActivityTest {
+public class TaskDetailsActivity {
 
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
-    public void settingPage() {
-        ViewInteraction materialButton = onView(
-                allOf(withId(R.id.settingsButton), withText("Settings"),
+    public void taskDetailsActivity() {
+        ViewInteraction recyclerView = onView(
+                allOf(withId(R.id.homeActivityRecylerView),
                         childAtPosition(
-                                childAtPosition(
-                                        withId(android.R.id.content),
-                                        0),
-                                2),
-                        isDisplayed()));
-        materialButton.perform(click());
-
-        ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.usernameInputEditText),
-                        childAtPosition(
-                                allOf(withId(R.id.userSettingPage),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                2),
-                        isDisplayed()));
-        appCompatEditText.perform(replaceText("zaid_izz96"), closeSoftKeyboard());
-
-        ViewInteraction materialButton2 = onView(
-                allOf(withId(R.id.saveUserSettingButton), withText("Save"),
-                        childAtPosition(
-                                allOf(withId(R.id.userSettingPage),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                3),
-                        isDisplayed()));
-        materialButton2.perform(click());
-
-        pressBack();
+                                withClassName(is("androidx.constraintlayout.widget.ConstraintLayout")),
+                                5)));
+        recyclerView.perform(actionOnItemAtPosition(0, click()));
 
         ViewInteraction textView = onView(
-                allOf(withId(R.id.userNameReplacedText), withText("zaid_izz96's tasks"),
-                        withParent(withParent(withId(android.R.id.content))),
+                allOf(withId(R.id.taskDetailTitle), withText("DB"),
+                        withParent(allOf(withId(R.id.paragraphLayout),
+                                withParent(IsInstanceOf.<View>instanceOf(android.view.ViewGroup.class)))),
                         isDisplayed()));
-        textView.check(matches(withText("zaid_izz96's tasks")));
+        textView.check(matches(withText("DB")));
 
-        ViewInteraction button = onView(
-                allOf(withId(R.id.settingsButton), withText("Settings"),
+        ViewInteraction textView2 = onView(
+                allOf(withId(R.id.task_date), withText("2023-11-13 14:18:42"),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
-        button.check(matches(isDisplayed()));
+        textView2.check(matches(isDisplayed()));
+
+        ViewInteraction textView3 = onView(
+                allOf(withId(R.id.task_state), withText("New"),
+                        withParent(withParent(withId(android.R.id.content))),
+                        isDisplayed()));
+        textView3.check(matches(isDisplayed()));
+
+        ViewInteraction textView4 = onView(
+                allOf(withId(R.id.task_state), withText("New"),
+                        withParent(withParent(withId(android.R.id.content))),
+                        isDisplayed()));
+        textView4.check(matches(isDisplayed()));
     }
 
     private static Matcher<View> childAtPosition(

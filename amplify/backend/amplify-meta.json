@@ -23,7 +23,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 60,
-              "apiKeyExpirationDate": "2024-01-07T09:28:31.361Z",
+              "apiKeyExpirationDate": "2024-01-11T18:33:38.658Z",
               "description": "this api key for generate model in the cloud "
             }
           },
@@ -37,8 +37,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apitaskmaster"
       },
-      "lastPushTimeStamp": "2023-11-08T09:32:42.620Z",
-      "lastPushDirHash": "NlkHhQpcApgNYEl/mAdffUGn7FA="
+      "lastPushTimeStamp": "2023-11-12T20:01:21.067Z",
+      "lastPushDirHash": "PQHKFm1Qepq2fRQG902fz3neC2o="
     }
   }
 }

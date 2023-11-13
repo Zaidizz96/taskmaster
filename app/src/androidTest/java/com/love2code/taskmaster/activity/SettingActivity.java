@@ -3,12 +3,15 @@ package com.love2code.taskmaster.activity;
 
 import static androidx.test.espresso.Espresso.onData;
 import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.Espresso.pressBack;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.closeSoftKeyboard;
 import static androidx.test.espresso.action.ViewActions.replaceText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
+import static androidx.test.espresso.matcher.ViewMatchers.withParent;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.anything;
@@ -35,94 +38,39 @@ import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class AddTaskActivity {
+public class SettingActivity {
 
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
-    public void addTaskActivity() {
+    public void settingActivity() {
         ViewInteraction materialButton = onView(
-                allOf(withId(R.id.addTask), withText("Add Task"),
+                allOf(withId(R.id.settingsButton), withText("Settings"),
                         childAtPosition(
                                 childAtPosition(
                                         withId(android.R.id.content),
                                         0),
-                                4),
+                                2),
                         isDisplayed()));
         materialButton.perform(click());
 
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.taskTitle),
+                allOf(withId(R.id.usernameInputEditText),
                         childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
+                                allOf(withId(R.id.userSettingPage),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                10),
+                                4),
                         isDisplayed()));
-        appCompatEditText.perform(click());
-
-        ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.taskTitle),
-                        childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                10),
-                        isDisplayed()));
-        appCompatEditText2.perform(replaceText("stress test"), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.taskBody),
-                        childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                7),
-                        isDisplayed()));
-        appCompatEditText3.perform(replaceText("conduct stress test on material for durablitiy"), closeSoftKeyboard());
-
-        ViewInteraction appCompatEditText4 = onView(
-                allOf(withId(R.id.taskBody), withText("conduct stress test on material for durablitiy"),
-                        childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                7),
-                        isDisplayed()));
-        appCompatEditText4.perform(click());
-
-        ViewInteraction appCompatEditText5 = onView(
-                allOf(withId(R.id.taskBody), withText("conduct stress test on material for durablitiy"),
-                        childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                7),
-                        isDisplayed()));
-        appCompatEditText5.perform(replaceText("conduct stress tests on material for durablitiy"));
-
-        ViewInteraction appCompatEditText6 = onView(
-                allOf(withId(R.id.taskBody), withText("conduct stress tests on material for durablitiy"),
-                        childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
-                                        childAtPosition(
-                                                withId(android.R.id.content),
-                                                0)),
-                                7),
-                        isDisplayed()));
-        appCompatEditText6.perform(closeSoftKeyboard());
+        appCompatEditText.perform(replaceText("khaled"), closeSoftKeyboard());
 
         ViewInteraction appCompatSpinner = onView(
-                allOf(withId(R.id.teamSpinner),
+                allOf(withId(R.id.teamSpinnerSettingsPage),
                         childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
+                                allOf(withId(R.id.userSettingPage),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
@@ -138,15 +86,29 @@ public class AddTaskActivity {
         materialTextView.perform(click());
 
         ViewInteraction materialButton2 = onView(
-                allOf(withId(R.id.submittedTaskButton), withText("save task"),
+                allOf(withId(R.id.saveUserSettingButton), withText("Save"),
                         childAtPosition(
-                                allOf(withId(R.id.addTaskActivity),
+                                allOf(withId(R.id.userSettingPage),
                                         childAtPosition(
                                                 withId(android.R.id.content),
                                                 0)),
-                                12),
+                                5),
                         isDisplayed()));
         materialButton2.perform(click());
+
+        pressBack();
+
+        ViewInteraction textView = onView(
+                allOf(withId(R.id.teamNameReplacedText), withText("Department:  Engineering"),
+                        withParent(withParent(withId(android.R.id.content))),
+                        isDisplayed()));
+        textView.check(matches(withText("Department:  Engineering")));
+
+        ViewInteraction textView2 = onView(
+                allOf(withId(R.id.userNameReplacedText), withText("khaled's tasks"),
+                        withParent(withParent(withId(android.R.id.content))),
+                        isDisplayed()));
+        textView2.check(matches(withText("khaled's tasks")));
     }
 
     private static Matcher<View> childAtPosition(
