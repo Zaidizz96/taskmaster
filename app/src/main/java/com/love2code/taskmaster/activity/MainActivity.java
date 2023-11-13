@@ -18,6 +18,7 @@ import com.amplifyframework.api.graphql.model.ModelMutation;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.core.Amplify;
 import com.amplifyframework.datastore.generated.model.Task;
+import com.amplifyframework.datastore.generated.model.Team;
 import com.love2code.taskmaster.R;
 import com.love2code.taskmaster.activity.adapter.HomePageRecyclerViewAdapter;
 
@@ -45,29 +46,57 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        tasks = new ArrayList<>();
-
-
-
-        Button settingButton = findViewById(R.id.settingsButton);
-        Button addTaskButton = findViewById(R.id.addTask);
-        Button allTaskButton = findViewById(R.id.allTask);
-
-        settingButton.setOnClickListener(view -> {
-            Intent goToSettingPage = new Intent(MainActivity.this, SettingsPage.class);
-            MainActivity.this.startActivity(goToSettingPage);
-        });
-
-        addTaskButton.setOnClickListener(view -> {
-            Intent goToAddTaskPage = new Intent(MainActivity.this, AddTask.class);
-            startActivity(goToAddTaskPage);
-        });
-
-        allTaskButton.setOnClickListener(view -> {
-            Intent goToAllTasks = new Intent(MainActivity.this, AllTasks.class);
-            startActivity(goToAllTasks);
-        });
+//        Team team1 = Team.builder()
+//                .name("Development")
+//                .build();
+//        Team team2 = Team.builder()
+//                .name("Engineering")
+//                .build();
+//        Team team3 = Team.builder()
+//                .name("Marketing")
+//                .build();
+//        Team team4 = Team.builder()
+//                .name("Financial")
+//                .build();
+//
+//        Amplify.API.mutate(
+//                ModelMutation.create(team1),
+//                successResponse -> {
+//                    Log.i(TAG , "team added successfully");
+//                } ,
+//                failureResponse -> {
+//                    Log.i(TAG , "failed to create team to database");
+//                }
+//        );
+//        Amplify.API.mutate(
+//                ModelMutation.create(team2),
+//                successResponse -> {
+//                    Log.i(TAG , "team added successfully");
+//                } ,
+//                failureResponse -> {
+//                    Log.i(TAG , "failed to create team to database");
+//                }
+//        );
+//        Amplify.API.mutate(
+//                ModelMutation.create(team3),
+//                successResponse -> {
+//                    Log.i(TAG , "team added successfully");
+//                } ,
+//                failureResponse -> {
+//                    Log.i(TAG , "failed to create team to database");
+//                }
+//        );
+//        Amplify.API.mutate(
+//                ModelMutation.create(team4),
+//                successResponse -> {
+//                    Log.i(TAG , "team added successfully");
+//                } ,
+//                failureResponse -> {
+//                    Log.i(TAG , "failed to create team to database");
+//                }
+//        );
+        init();
+        setupIntents();
         setupHomePageRecyclerView();
 
     }
@@ -78,9 +107,12 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
         String username = sharedPreferences.getString(SettingsPage.USERNAME_TAG, "DefaultUsername");
+        String settingPageTeamSelected = sharedPreferences.getString(SettingsPage.TEAM_NAME_PREFERENCE_TAG , "DefaultTeamName" );
 
         TextView usernameTextView = findViewById(R.id.userNameReplacedText);
+        TextView teamNameTextView = findViewById(R.id.teamNameReplacedText);
         usernameTextView.setText(username + "'s tasks");
+        teamNameTextView.setText("Department: " +" " +settingPageTeamSelected);
 
         Amplify.API.query(
                 ModelQuery.list(Task.class),
@@ -88,7 +120,9 @@ public class MainActivity extends AppCompatActivity {
                     Log.i(TAG , "Reading tasks successfully");
                     tasks.clear();
                     for (Task task  : successResponse.getData()) {
-                        tasks.add(task);
+                        if (task.getTeam().getName().equals(settingPageTeamSelected)){
+                            tasks.add(task);
+                        }
                     }
                     runOnUiThread(() ->{
                         adapter.notifyDataSetChanged();
@@ -108,6 +142,32 @@ public class MainActivity extends AppCompatActivity {
         homePageRecyclerView.setLayoutManager(layoutManager);
         adapter = new HomePageRecyclerViewAdapter(tasks, this);
         homePageRecyclerView.setAdapter(adapter);
+    }
+
+    private void init(){
+        sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
+        tasks = new ArrayList<>();
+    }
+
+    private void setupIntents(){
+        Button settingButton = findViewById(R.id.settingsButton);
+        Button addTaskButton = findViewById(R.id.addTask);
+        Button allTaskButton = findViewById(R.id.allTask);
+
+        settingButton.setOnClickListener(view -> {
+            Intent goToSettingPage = new Intent(MainActivity.this, SettingsPage.class);
+            MainActivity.this.startActivity(goToSettingPage);
+        });
+
+        addTaskButton.setOnClickListener(view -> {
+            Intent goToAddTaskPage = new Intent(MainActivity.this, AddTask.class);
+            startActivity(goToAddTaskPage);
+        });
+
+        allTaskButton.setOnClickListener(view -> {
+            Intent goToAllTasks = new Intent(MainActivity.this, AllTasks.class);
+            startActivity(goToAllTasks);
+        });
     }
 
 }

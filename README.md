@@ -34,14 +34,21 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   - Integrated AWS Amplify for cloud data storage to create a scalable backend for the app.
   - Used the Amplify CLI to create a Task resource in DynamoDB that replicates our existing Task schema.
   - Updated all references to the Task data to access data in DynamoDB using AWS Amplify.
+  
+- **Day 7 (November 13, 2023):**
+  - Implemented a second entity for Teams, including a name field and a list of tasks associated with each team.
+  - Manually created three teams using mutations to establish initial team data.
+  - Modified the "Add Task" form to include a selection mechanism (e.g., Spinner) for assigning tasks to a specific team.
+  - Updated the Settings page to allow users to choose their team in addition to their username.
+  - Configured the app to display only tasks associated with the selected team on the homepage.
 
 
 ## Screenshots
 
-![Homepage](screenshots/Home_page_lab29.png)
-![UserSettingPage](screenshots/User-Setting-page.png)
+![Homepage](screenshots/HomePage%20taskmaster%20lab33.png)
+![UserSettingPage](screenshots/SettingPage%20taskmaster%20lab33.png)
 ![TaskDetailPage](screenshots/Task_details_page_lab29.png)
-![AddTaskPage](screenshots/Add_task_page_lab29.png)
+![AddTaskPage](screenshots/AddTaskForm%20taskmaster%20lab33.png)
 
 
 ## Setup
@@ -64,17 +71,17 @@ We have integrated AWS Amplify to add cloud functionality to our TaskMaster app.
 
 ### Homepage
 
-- We refactored the homepage's RecyclerView to display all Task entities from DynamoDB. Now, users can view their tasks from the cloud in the app.
+- We refactored the homepage's RecyclerView to display all Task entities from DynamoDB. That are related to the user settings assigned team
 
 ### Task Detail Page:
 - Display task title, description, and status.
 
 ### Settings Page:
-- Allow users to enter and save their usernames.
+- Allow users to enter and save their usernames. in addition to the ability for the user to specify the team name that he wants relative tasks to be appeared in the home page 
 
 ### Add a Task
 
-- We modified the "Add Task" form to save the data entered as a Task to DynamoDB. When users add a new task, it's now stored in the cloud.
+- We modified the "Add Task" form to save the data entered as a Task to DynamoDB. When users add a new task, it's now stored in the cloud. alongside the capability for users to assign this task for a specific team
 
 ### All Tasks
 
