@@ -30,6 +30,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences sharedPreferences;
+    public static final String TASK_ID_EXTRA_TAG = "taskID";
     public static final String TASK_TITLE_EXTRA_TAG = "taskTitle";
     public static final String TASK_BODY_EXTRA_TAG = "taskBody";
     public static final String TASK_STATE_EXTRA_TAG = "taskState";

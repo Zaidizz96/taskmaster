@@ -2,13 +2,26 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/addTaskActivity"
+    android:id="@+id/editTaskActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.AddTask">
+    tools:context=".activity.EditTask">
+
+    <Button
+        android:id="@+id/deleteTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="delete task"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toEndOf="@+id/editSaveTaskButton"
+        app:layout_constraintTop_toBottomOf="@+id/editTaskState"
+        app:layout_constraintVertical_bias="0.787"
+        tools:ignore="HardcodedText" />
 
     <Spinner
-        android:id="@+id/addTeamSpinner"
+        android:id="@+id/editTeamSpinner"
         android:layout_width="370dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -29,7 +42,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.043"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView"
@@ -67,9 +81,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="29dp"
         android:layout_marginBottom="47dp"
-        android:text="@string/add_your_task"
+        android:text="Edit Your Task"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/addTaskTitle"
+        app:layout_constraintBottom_toTopOf="@+id/editTaskTitle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +116,7 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/addTaskDescription"
+        android:id="@+id/editTaskDescription"
         android:layout_width="370dp"
         android:layout_height="48dp"
         android:background="@drawable/edittext_border"
@@ -138,7 +152,7 @@
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
 
     <EditText
-        android:id="@+id/addTaskTitle"
+        android:id="@+id/editTaskTitle"
         android:layout_width="370dp"
         android:layout_height="48dp"
         android:background="@drawable/edittext_border"
@@ -160,18 +174,18 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/saveTaskButton"
+        android:id="@+id/editSaveTaskButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:text="@string/save_task"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addTaskState"
+        app:layout_constraintTop_toBottomOf="@+id/editTaskState"
         app:layout_constraintVertical_bias="0.787" />
 
     <Spinner
-        android:id="@+id/addTaskState"
+        android:id="@+id/editTaskState"
         android:layout_width="370dp"
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
@@ -181,6 +195,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/frameLayout3"
         app:layout_constraintVertical_bias="0.0" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
