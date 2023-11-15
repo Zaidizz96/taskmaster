@@ -80,7 +80,7 @@ public class AddTask extends AppCompatActivity {
     }
 
     public void setUpTeamSpinner() {
-        teamSpinner = (Spinner) findViewById(R.id.teamSpinner);
+        teamSpinner = (Spinner) findViewById(R.id.addTeamSpinner);
 
         Amplify.API.query(
                 ModelQuery.list(Team.class),
@@ -111,7 +111,7 @@ public class AddTask extends AppCompatActivity {
 
     private void setUpTaskStateSpinner() {
 
-        taskStateSpinner = (Spinner) findViewById(R.id.taskState);
+        taskStateSpinner = (Spinner) findViewById(R.id.addTaskState);
         taskStateSpinner.setAdapter(new ArrayAdapter<>(
                 this,
                 android.R.layout.simple_spinner_item,
@@ -120,12 +120,12 @@ public class AddTask extends AppCompatActivity {
     }
 
     private void setUpSaveButtonAndSaveEntityToDB() {
-        Button submittedTaskButton = (Button) findViewById(R.id.submittedTaskButton);
+        Button submittedTaskButton = (Button) findViewById(R.id.saveTaskButton);
 
         submittedTaskButton.setOnClickListener(v -> {
 
-            String title = ((EditText) findViewById(R.id.taskTitle)).getText().toString();
-            String body = ((EditText) findViewById(R.id.taskBody)).getText().toString();
+            String title = ((EditText) findViewById(R.id.addTaskTitle)).getText().toString();
+            String body = ((EditText) findViewById(R.id.addTaskDescription)).getText().toString();
             String currentDateString = com.amazonaws.util.DateUtils.formatISO8601Date(new Date());
             String selectedTeamString= teamSpinner.getSelectedItem().toString();
 

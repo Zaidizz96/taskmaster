@@ -64,7 +64,7 @@ public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRe
             throw new RuntimeException(e);
         }
         //Setup the date format (end)
-
+        String taskId = tasks.get(position).getId();
         String taskTitle = tasks.get(position).getTitle();
         String taskBody = tasks.get(position).getBody();
         String taskState = tasks.get(position).getState().toString();
@@ -75,6 +75,7 @@ public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRe
         View taskViewHolder = holder.itemView;
         taskViewHolder.setOnClickListener(view -> {
             Intent goToTaskDetailsPage = new Intent(callingActivity , TaskDetails.class);
+            goToTaskDetailsPage.putExtra(MainActivity.TASK_ID_EXTRA_TAG , taskId);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_TITLE_EXTRA_TAG ,taskTitle);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_BODY_EXTRA_TAG , taskBody);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_STATE_EXTRA_TAG , taskState);

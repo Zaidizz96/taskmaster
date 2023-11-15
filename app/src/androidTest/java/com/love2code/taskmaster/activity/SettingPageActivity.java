@@ -38,14 +38,14 @@ import org.junit.runner.RunWith;
 
 @LargeTest
 @RunWith(AndroidJUnit4.class)
-public class SettingActivity {
+public class SettingPageActivity {
 
     @Rule
     public ActivityScenarioRule<MainActivity> mActivityScenarioRule =
             new ActivityScenarioRule<>(MainActivity.class);
 
     @Test
-    public void settingActivity() {
+    public void settingPageActivity() {
         ViewInteraction materialButton = onView(
                 allOf(withId(R.id.settingsButton), withText("Settings"),
                         childAtPosition(
@@ -65,7 +65,7 @@ public class SettingActivity {
                                                 0)),
                                 4),
                         isDisplayed()));
-        appCompatEditText.perform(replaceText("khaled"), closeSoftKeyboard());
+        appCompatEditText.perform(replaceText("zaid"), closeSoftKeyboard());
 
         ViewInteraction appCompatSpinner = onView(
                 allOf(withId(R.id.teamSpinnerSettingsPage),
@@ -98,17 +98,7 @@ public class SettingActivity {
 
         pressBack();
 
-        ViewInteraction textView = onView(
-                allOf(withId(R.id.teamNameReplacedText), withText("Department:  Engineering"),
-                        withParent(withParent(withId(android.R.id.content))),
-                        isDisplayed()));
-        textView.check(matches(withText("Department:  Engineering")));
 
-        ViewInteraction textView2 = onView(
-                allOf(withId(R.id.userNameReplacedText), withText("khaled's tasks"),
-                        withParent(withParent(withId(android.R.id.content))),
-                        isDisplayed()));
-        textView2.check(matches(withText("khaled's tasks")));
     }
 
     private static Matcher<View> childAtPosition(

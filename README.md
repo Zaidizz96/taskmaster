@@ -41,6 +41,10 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   - Modified the "Add Task" form to include a selection mechanism (e.g., Spinner) for assigning tasks to a specific team.
   - Updated the Settings page to allow users to choose their team in addition to their username.
   - Configured the app to display only tasks associated with the selected team on the homepage.
+  
+- **Day 8 (November 15, 2023):**
+  - Added new activity for editing the task information the user has already create it  
+  - implements the (Delete and Update) amplify api operations for this goal 
 
 
 ## Screenshots
@@ -49,6 +53,7 @@ TaskMaster is an Android application designed to help you manage your tasks and 
 ![UserSettingPage](screenshots/SettingPage%20taskmaster%20lab33.png)
 ![TaskDetailPage](screenshots/Task_details_page_lab29.png)
 ![AddTaskPage](screenshots/AddTaskForm%20taskmaster%20lab33.png)
+![EditTaskPage](screenshots/Screenshot%202023-11-15%20181645.png)
 
 
 ## Setup
@@ -86,6 +91,10 @@ We have integrated AWS Amplify to add cloud functionality to our TaskMaster app.
 ### All Tasks
 
 The "All Tasks" page currently features a back button and will be enhanced to display tasks from the local database, allowing users to view all their tasks at a glance.
+
+### Edit Tasks
+
+- we create new page activity (edit task) for allowing the users to edit their task info
 
 
 ## Espresso Testing
