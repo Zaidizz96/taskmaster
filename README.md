@@ -45,16 +45,24 @@ TaskMaster is an Android application designed to help you manage your tasks and 
 - **Day 8 (November 15, 2023):**
   - Added new activity for editing the task information the user has already create it  
   - implements the (Delete and Update) amplify api operations for this goal 
+  
+- **Day 9 (November 19, 2023):**
+  - Integrated AWS Cognito for user authentication.
+  - Added user login and sign-up activities allow the user to signup with email and password and logged in to our system 
+  - Displayed the logged-in user's username on the home page.
+  - Implemented user logout functionality.
 
 
 ## Screenshots
 
-![Homepage](screenshots/HomePage%20taskmaster%20lab33.png)
+![Homepage](screenshots/Screenshot%202023-11-19%20230702.png)
 ![UserSettingPage](screenshots/SettingPage%20taskmaster%20lab33.png)
 ![TaskDetailPage](screenshots/Task_details_page_lab29.png)
 ![AddTaskPage](screenshots/AddTaskForm%20taskmaster%20lab33.png)
 ![EditTaskPage](screenshots/Screenshot%202023-11-15%20181645.png)
-
+![SignupPage](screenshots/signup-page-lab36.png)
+![LoginPage](screenshots/login-page-lab36.png)
+![VerificationPage](screenshots/verification-page-lab36.png)
 
 ## Setup
 
@@ -66,7 +74,11 @@ To get started with the TaskMaster Android app:
 
 3. Clone this repository and open the project in Android Studio.
 
-4. Run the app on an Android emulator or a physical device to see the main page with navigation buttons.
+4. Set up AWS Amplify and Cognito:
+  - Follow the Amplify documentation to add Cognito for user authentication.
+  - Run the app on an Android emulator or a physical device to experience the new login and logout features.
+
+
 
 ## Features
 
@@ -95,6 +107,22 @@ The "All Tasks" page currently features a back button and will be enhanced to di
 ### Edit Tasks
 
 - we create new page activity (edit task) for allowing the users to edit their task info
+
+## User Authentication with AWS Cognito
+
+We have integrated AWS Cognito to enhance the security and user authentication of our TaskMaster app. Here's a summary of the new features:
+
+### User Login
+
+- AWS Cognito is now part of our Amplify setup, providing a secure authentication mechanism.
+- Users can log in using the pre-built Cognito UI, ensuring a seamless and secure login experience.
+- The logged-in user's username is displayed on relevant pages, offering a personalized experience.
+
+### User Logout
+
+- Implemented a user logout functionality, allowing users to securely log out of the application.
+
+
 
 
 ## Espresso Testing
