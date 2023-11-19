@@ -7,7 +7,7 @@
           "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDate": "2024-01-11T18:33:38.658Z",
+              "apiKeyExpirationDate": "2024-01-18T14:38:36.844Z",
               "apiKeyExpirationDays": 60,
               "description": "this api key for generate model in the cloud "
             },
@@ -17,6 +17,34 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "AppSync"
+    }
+  },
+  "auth": {
+    "taskmaster70ae126b": {
+      "customAuth": false,
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
     }
   }
 }
