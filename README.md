@@ -51,14 +51,20 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   - Added user login and sign-up activities allow the user to signup with email and password and logged in to our system 
   - Displayed the logged-in user's username on the home page.
   - Implemented user logout functionality.
+  
+- **Day 10 (November 26, 2023):**
+  - Added the ability for users to optionally attach an image to a task on the "Add a Task" activity.
+  - Uploaded attached images to S3 and associated them with the respective tasks.
+  - Display images associated with tasks on the Task detail activity.
 
 
 ## Screenshots
 
 ![Homepage](screenshots/Screenshot%202023-11-19%20230702.png)
 ![UserSettingPage](screenshots/SettingPage%20taskmaster%20lab33.png)
-![TaskDetailPage](screenshots/Task_details_page_lab29.png)
-![AddTaskPage](screenshots/AddTaskForm%20taskmaster%20lab33.png)
+![TaskDetailPage](screenshots/Screenshot%202023-11-26%20013323.png)
+![TaskDetailPage](screenshots/Screenshot%202023-11-26%20013350.png)
+![AddTaskPage](screenshots/Screenshot%202023-11-26%20013239.png)
 ![EditTaskPage](screenshots/Screenshot%202023-11-15%20181645.png)
 ![SignupPage](screenshots/signup-page-lab36.png)
 ![LoginPage](screenshots/login-page-lab36.png)
@@ -121,6 +127,16 @@ We have integrated AWS Cognito to enhance the security and user authentication o
 ### User Logout
 
 - Implemented a user logout functionality, allowing users to securely log out of the application.
+
+### Uploads
+
+- On the "Add a Task" activity, users can now optionally select an image to attach to a task.
+- If an image is attached, it will be uploaded to S3 and associated with the task.
+
+### Displaying Files
+
+- On the Task detail activity, if there is an image associated with a particular task, it will be displayed within that activity.
+
 
 
 
