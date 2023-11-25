@@ -23,7 +23,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 60,
-              "apiKeyExpirationDate": "2024-01-18T14:38:36.844Z",
+              "apiKeyExpirationDate": "2024-01-23T22:43:25.136Z",
               "description": "this api key for generate model in the cloud "
             }
           },
@@ -37,8 +37,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apitaskmaster"
       },
-      "lastPushTimeStamp": "2023-11-19T14:43:17.114Z",
-      "lastPushDirHash": "mm0yowZ+Gsgk0Z7W4SWE9dMy3tI="
+      "lastPushTimeStamp": "2023-11-24T22:48:27.986Z",
+      "lastPushDirHash": "o1swBUyVL8GrzKAOrVKENTZtRJg="
     }
   },
   "auth": {
@@ -71,7 +71,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/auth/taskmaster70ae126b-cloudformation-template.json",
         "logicalId": "authtaskmaster70ae126b"
       },
-      "lastPushTimeStamp": "2023-11-19T14:43:17.114Z",
+      "lastPushTimeStamp": "2023-11-24T22:48:27.986Z",
       "output": {
         "UserPoolId": "us-west-2_6tsHCGPrg",
         "AppClientIDWeb": "7e1rc0qmfneu8crjmlm4scg936",
@@ -81,7 +81,24 @@
         "IdentityPoolName": "taskmaster70ae126b_identitypool_70ae126b__dev",
         "UserPoolName": "taskmaster70ae126b_userpool_70ae126b"
       },
-      "lastPushDirHash": "aHMKBWtVagybaC6Tq65VJrhbnoA="
+      "lastPushDirHash": "SYfKbHpa1+8QOCGcitSIYSeg1ow="
+    }
+  },
+  "storage": {
+    "taskmaster": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "lastPushTimeStamp": "2023-11-24T22:48:27.986Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storagetaskmaster"
+      },
+      "output": {
+        "BucketName": "taskmaster2ef92a5139a24ec4b2a4b97a1c80ad7a05504-dev",
+        "Region": "us-west-2"
+      },
+      "lastPushDirHash": "or2wXu3mUSYEHg0stOk1l6qzaZA="
     }
   }
 }

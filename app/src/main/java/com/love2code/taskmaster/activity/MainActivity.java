@@ -23,6 +23,10 @@ import com.amplifyframework.datastore.generated.model.Task;
 import com.love2code.taskmaster.R;
 import com.love2code.taskmaster.activity.adapter.HomePageRecyclerViewAdapter;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String TASK_BODY_EXTRA_TAG = "taskBody";
     public static final String TASK_STATE_EXTRA_TAG = "taskState";
     public static final String TASK_DATE_EXTRA_TAG = "taskDate";
+    public static final String TASK_S3_IMAGE_KEY = "taskImage";
     public static final String DATABASE_NAME = "tasks";
     public static final String TAG = "MainActivity";
 
@@ -139,6 +144,29 @@ public class MainActivity extends AppCompatActivity {
 //            Log.e(TAG , "Sign out failed" + failerResponse.toString());
 //                }
 //        );
+        String emptyFileName = "emptyTestFileName";
+        File emptyFile = new File(getApplicationContext().getFilesDir(), emptyFileName);
+
+        try {
+            BufferedWriter emptyFileBufferWriter = new BufferedWriter(new FileWriter(emptyFile));
+            emptyFileBufferWriter.append("some text from zaid \n another text from zaid");
+            emptyFileBufferWriter.close();
+        } catch (IOException ioException) {
+            Log.e(TAG, "could not write locally with" + emptyFileName);
+        }
+
+        String emptyFileS3Key = "file in S3.txt";
+        Amplify.Storage.uploadFile(
+                emptyFileS3Key,
+                emptyFile,
+                success -> {
+                    Log.i(TAG, " S3 Upload the file succeeded and the key:" + success.getKey());
+                },
+                failure -> {
+                    Log.e(TAG, "s3 Failed to upload the file " + failure.getMessage());
+                }
+        );
+
 
         setupIntents();
         setupLogoutButton();
@@ -152,17 +180,16 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
 
 
-
         String username = sharedPreferences.getString(SettingsPage.USERNAME_TAG, "DefaultUsername");
         String settingPageTeamSelected = sharedPreferences.getString(SettingsPage.TEAM_NAME_PREFERENCE_TAG, "DefaultTeamName");
 
         AuthUser authUser = Amplify.Auth.getCurrentUser();
-        if (authUser == null){
+        if (authUser == null) {
             Button loginButton = findViewById(R.id.homeLoginInterntButton);
             loginButton.setVisibility(View.VISIBLE);
             Button logoutButton = (Button) findViewById(R.id.logoutButton);
             logoutButton.setVisibility(View.INVISIBLE);
-        }else {
+        } else {
             String email = authUser.getUsername();
             Button loginButton = findViewById(R.id.homeLoginInterntButton);
             loginButton.setVisibility(View.INVISIBLE);
@@ -173,19 +200,19 @@ public class MainActivity extends AppCompatActivity {
                     success ->
                     {
                         Log.i(TAG, "successfully fetching user session: ");
-                        for (AuthUserAttribute userAttribute: success){
-                            if(userAttribute.getKey().getKeyString().equals("email")){
+                        for (AuthUserAttribute userAttribute : success) {
+                            if (userAttribute.getKey().getKeyString().equals("email")) {
                                 String userEmail = userAttribute.getValue();
                                 runOnUiThread(() ->
                                 {
-                                    ((TextView)findViewById(R.id.userEmailReplacedText)).setText(userEmail);
+                                    ((TextView) findViewById(R.id.userEmailReplacedText)).setText(userEmail);
                                 });
                             }
                         }
                     },
                     failure ->
                     {
-                        Log.i(TAG, "Fetch user attributes failed: "+failure.toString());
+                        Log.i(TAG, "Fetch user attributes failed: " + failure.toString());
                     }
             );
 
@@ -254,19 +281,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
         loginButton.setOnClickListener(v -> {
-            Intent gotoLoginPage = new Intent(MainActivity.this , LoginActivity.class);
+            Intent gotoLoginPage = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(gotoLoginPage);
 
         });
     }
 
-    private void setupLogoutButton(){
+    private void setupLogoutButton() {
         Button logoutButton = (Button) findViewById(R.id.logoutButton);
         logoutButton.setOnClickListener(v -> {
             Amplify.Auth.signOut(() -> {
                         Log.i(TAG, "Sign out success");
                         runOnUiThread(() -> {
-                            ((TextView)findViewById(R.id.userEmailReplacedText)).setText("");
+                            ((TextView) findViewById(R.id.userEmailReplacedText)).setText("");
                         });
                     },
                     failerResponse -> {
