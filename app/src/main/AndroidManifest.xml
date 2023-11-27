@@ -38,7 +38,14 @@
             android:exported="false" />
         <activity
             android:name=".activity.AddTask"
-            android:exported="false" />
+            android:exported="true">
+            <intent-filter android:label="add task activity label">
+                <action android:name="android.intent.action.SEND"/>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain"/>
+                <data android:mimeType="image/*"/>
+            </intent-filter>
+        </activity>
         <activity
             android:name=".activity.MainActivity"
             android:exported="true">

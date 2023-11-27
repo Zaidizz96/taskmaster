@@ -56,6 +56,12 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   - Added the ability for users to optionally attach an image to a task on the "Add a Task" activity.
   - Uploaded attached images to S3 and associated them with the respective tasks.
   - Display images associated with tasks on the Task detail activity.
+  
+_ **Day 11 (November 27, 2023):**
+  - Implemented the ability to share photos from other apps.
+  - Added an intent filter to the "Add a Task" activity to handle shared images.
+  - Users can now hit the "share" button on an image in another app, choose TaskMaster, and be taken directly to the "Add a Task" activity with the image pre-selected.
+
 
 
 ## Screenshots
@@ -137,6 +143,11 @@ We have integrated AWS Cognito to enhance the security and user authentication o
 
 - On the Task detail activity, if there is an image associated with a particular task, it will be displayed within that activity.
 
+### Adding a Task from Another Application
+
+- Added an intent filter to the "Add a Task" activity, enabling users to share images from other apps.
+- Users can hit the "share" button on an image in another app, choose TaskMaster, and be taken directly to the "Add a Task" activity with the image pre-selected.
+
 
 
 
@@ -151,11 +162,6 @@ We have integrated AWS Cognito to enhance the security and user authentication o
 3. **Username Edit Test**:
   - The user's ability to edit their username has been tested, and it is verified that the updated username is correctly displayed on the homepage.
 
-## Resources
-
-- [Android Buttons Documentation](https://developer.android.com/guide/topics/ui/controls/button)
-- [Android UI Events Documentation](https://developer.android.com/guide/topics/ui/ui-events)
-- [RecyclerView Documentation](https://developer.android.com/guide/topics/ui/layout/recyclerview)
 
 Start building your TaskMaster app and have fun developing your project!
 
