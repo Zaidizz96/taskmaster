@@ -62,13 +62,18 @@ _ **Day 11 (November 27, 2023):**
   - Added an intent filter to the "Add a Task" activity to handle shared images.
   - Users can now hit the "share" button on an image in another app, choose TaskMaster, and be taken directly to the "Add a Task" activity with the image pre-selected.
 
+- **Day 12 (November 29, 2023):**
+  - Implemented automatic location retrieval and inclusion in the saved Task when the user adds a new task.
+  - Display the location on the Task Detail activity if it exists.
+
 
 
 ## Screenshots
 
 ![Homepage](screenshots/Screenshot%202023-11-19%20230702.png)
 ![UserSettingPage](screenshots/SettingPage%20taskmaster%20lab33.png)
-![TaskDetailPage](screenshots/Screenshot%202023-11-26%20013323.png)
+![TaskDetailPage](screenshots/Screenshot%202023-11-29%20231944.png)
+![DynamoDB](screenshots/Screenshot%202023-11-29%20232022.png)
 ![TaskDetailPage](screenshots/Screenshot%202023-11-26%20013350.png)
 ![AddTaskPage](screenshots/Screenshot%202023-11-26%20013239.png)
 ![EditTaskPage](screenshots/Screenshot%202023-11-15%20181645.png)
@@ -147,6 +152,11 @@ We have integrated AWS Cognito to enhance the security and user authentication o
 
 - Added an intent filter to the "Add a Task" activity, enabling users to share images from other apps.
 - Users can hit the "share" button on an image in another app, choose TaskMaster, and be taken directly to the "Add a Task" activity with the image pre-selected.
+
+### Location
+- When the user adds a task, their location is automatically retrieved and included as part of the saved Task.
+- On the Task Detail activity, the location of a Task is displayed if it exists.
+
 
 
 

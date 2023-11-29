@@ -70,6 +70,8 @@ public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRe
         String taskState = tasks.get(position).getState().toString();
         String finalDateCreatedString = dateCreatedString;
         String imageS3Key = tasks.get(position).getTaskImageS3Key();
+        String userLatitude = tasks.get(position).getTaskUserLatitude();
+        String userLongitude = tasks.get(position).getTaskUserLongitude();
 
         taskFragmentTextView.setText(taskTitle);
 
@@ -82,6 +84,8 @@ public class HomePageRecyclerViewAdapter extends RecyclerView.Adapter<HomePageRe
             goToTaskDetailsPage.putExtra(MainActivity.TASK_STATE_EXTRA_TAG , taskState);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_DATE_EXTRA_TAG , finalDateCreatedString);
             goToTaskDetailsPage.putExtra(MainActivity.TASK_S3_IMAGE_KEY , imageS3Key);
+            goToTaskDetailsPage.putExtra(MainActivity.TASK_USER_LATITUDE , userLatitude);
+            goToTaskDetailsPage.putExtra(MainActivity.TASK_USER_LONGITUDE , userLongitude);
             callingActivity.startActivity(goToTaskDetailsPage);
         });
 

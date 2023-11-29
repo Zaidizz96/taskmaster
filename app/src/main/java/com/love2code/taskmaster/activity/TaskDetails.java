@@ -40,6 +40,8 @@ public class TaskDetails extends AppCompatActivity {
         String taskState = null;
         String dateCreatedString = null;
         String imageS3Key = null;
+        String userLatitude = null;
+        String userLongitude = null;
 
 
         if(callingIntent != null){
@@ -49,6 +51,8 @@ public class TaskDetails extends AppCompatActivity {
             taskState = callingIntent.getStringExtra(MainActivity.TASK_STATE_EXTRA_TAG);
             dateCreatedString = callingIntent.getStringExtra(MainActivity.TASK_DATE_EXTRA_TAG);
             imageS3Key = callingIntent.getStringExtra(MainActivity.TASK_S3_IMAGE_KEY);
+            userLatitude = callingIntent.getStringExtra(MainActivity.TASK_USER_LATITUDE);
+            userLongitude = callingIntent.getStringExtra(MainActivity.TASK_USER_LONGITUDE);
 
         } else {
             taskId = null;
@@ -58,12 +62,16 @@ public class TaskDetails extends AppCompatActivity {
         TextView taskDetailBody = findViewById(R.id.taskDetailDescription);
         TextView taskDetailState = findViewById(R.id.task_state);
         TextView taskDetailsDate = findViewById(R.id.task_date);
+        TextView taskUserLatitude = findViewById(R.id.taskLatitude);
+        TextView taskUserLongitude = findViewById(R.id.taskLongitude);
 
         taskDetailTitle.setText(Objects.requireNonNullElse(taskTitle, "no task title specified!!!!"));
         taskDetailBody.setText(Objects.requireNonNullElse(taskBody , "no task description specified"));
         taskDetailState.setText(Objects.requireNonNullElse(taskState , "no task state specified"));
         taskDetailsDate.setText(Objects.requireNonNullElse(dateCreatedString , "no task createdAt date specified"));
-
+        taskUserLatitude.setText(Objects.requireNonNullElse(userLatitude , "no user latitude specified"));
+        taskUserLongitude.setText(Objects.requireNonNullElse(userLongitude , "no user longitude specified"));
+        
         displayImage(imageS3Key);
 
         Button editTaskButton = (Button) findViewById(R.id.editTaskButton);

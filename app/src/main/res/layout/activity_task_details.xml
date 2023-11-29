@@ -6,6 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".activity.AllTasks">
 
+    <TextView
+        android:id="@+id/taskLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:text="Longitude"
+        android:textSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageTaskDetails"
+        app:layout_constraintStart_toEndOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/taskLatitude"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User longitude :"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageTaskDetails"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.036"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.221" />
+
+    <TextView
+        android:id="@+id/taskLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="24dp"
+        android:text="Latitude"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/task_date" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="User latitude :"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
     <ImageView
         android:id="@+id/imageTaskDetails"
         android:layout_width="wrap_content"
@@ -13,18 +61,17 @@
         app:layout_constraintBottom_toTopOf="@+id/editTaskButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_date"
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
         android:id="@+id/task_state"
-        android:layout_width="0dp"
-        android:layout_height="25dp"
+        android:layout_width="62dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="68dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="180dp"
         android:text="state"
         android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/taskStateId"
         app:layout_constraintTop_toBottomOf="@+id/paragraphLayout" />
 
     <FrameLayout
@@ -68,7 +115,7 @@
         <TextView
             android:id="@+id/taskDetailDescription"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="87dp"
             android:layout_marginTop="16dp"
             android:text="@string/titleDescription"
             android:textColor="#666666"
@@ -85,12 +132,11 @@
         android:id="@+id/taskStateId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="Task state :"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/task_state"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/paragraphLayout" />
 
@@ -98,12 +144,11 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         android:text="Created At :"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/task_date"
-        app:layout_constraintHorizontal_bias="0.132"
+        app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/taskStateId" />
 
@@ -111,15 +156,12 @@
         android:id="@+id/task_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="24dp"
         android:text="Date"
         android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/task_state"
-        app:layout_constraintVertical_bias="0.01" />
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/task_state" />
 
     <Button
         android:id="@+id/editTaskButton"
