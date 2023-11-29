@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     public static final String TASK_STATE_EXTRA_TAG = "taskState";
     public static final String TASK_DATE_EXTRA_TAG = "taskDate";
     public static final String TASK_S3_IMAGE_KEY = "taskImage";
+    public static final String TASK_USER_LATITUDE = "userLatitude";
+    public static final String TASK_USER_LONGITUDE = "userLongitude";
     public static final String DATABASE_NAME = "tasks";
     public static final String TAG = "MainActivity";
 

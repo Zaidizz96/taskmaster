@@ -23,7 +23,7 @@
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
               "apiKeyExpirationDays": 60,
-              "apiKeyExpirationDate": "2024-01-23T22:43:25.136Z",
+              "apiKeyExpirationDate": "2024-01-27T20:24:06.873Z",
               "description": "this api key for generate model in the cloud "
             }
           },
@@ -37,8 +37,8 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/api/cloudformation-template.json",
         "logicalId": "apitaskmaster"
       },
-      "lastPushTimeStamp": "2023-11-24T22:48:27.986Z",
-      "lastPushDirHash": "o1swBUyVL8GrzKAOrVKENTZtRJg="
+      "lastPushTimeStamp": "2023-11-28T20:30:36.214Z",
+      "lastPushDirHash": "ZAok/4kQdvT6ajRaHWhmWb5TZ6g="
     }
   },
   "auth": {
@@ -71,7 +71,7 @@
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/auth/taskmaster70ae126b-cloudformation-template.json",
         "logicalId": "authtaskmaster70ae126b"
       },
-      "lastPushTimeStamp": "2023-11-24T22:48:27.986Z",
+      "lastPushTimeStamp": "2023-11-28T20:30:30.792Z",
       "output": {
         "UserPoolId": "us-west-2_6tsHCGPrg",
         "AppClientIDWeb": "7e1rc0qmfneu8crjmlm4scg936",
@@ -89,7 +89,7 @@
       "service": "S3",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
-      "lastPushTimeStamp": "2023-11-24T22:48:27.986Z",
+      "lastPushTimeStamp": "2023-11-28T20:30:30.821Z",
       "providerMetadata": {
         "s3TemplateURL": "https://s3.amazonaws.com/amplify-taskmaster-dev-05504-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
         "logicalId": "storagetaskmaster"
