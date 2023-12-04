@@ -57,7 +57,7 @@ TaskMaster is an Android application designed to help you manage your tasks and 
   - Uploaded attached images to S3 and associated them with the respective tasks.
   - Display images associated with tasks on the Task detail activity.
   
-_ **Day 11 (November 27, 2023):**
+- **Day 11 (November 27, 2023):**
   - Implemented the ability to share photos from other apps.
   - Added an intent filter to the "Add a Task" activity to handle shared images.
   - Users can now hit the "share" button on an image in another app, choose TaskMaster, and be taken directly to the "Add a Task" activity with the image pre-selected.
@@ -65,6 +65,10 @@ _ **Day 11 (November 27, 2023):**
 - **Day 12 (November 29, 2023):**
   - Implemented automatic location retrieval and inclusion in the saved Task when the user adds a new task.
   - Display the location on the Task Detail activity if it exists.
+  
+- **Day 13 (December 4, 2023):**
+  - Integrated basic, aggregated analytics using Amazon Pinpoint.
+  - Implemented text-to-speech functionality on the Task Detail activity using the Amplify Predictions library.
 
 
 
@@ -80,6 +84,13 @@ _ **Day 11 (November 27, 2023):**
 ![SignupPage](screenshots/signup-page-lab36.png)
 ![LoginPage](screenshots/login-page-lab36.png)
 ![VerificationPage](screenshots/verification-page-lab36.png)
+
+#### task details activity and pinpoint dashboard:
+![TaskDetailPage](screenshots/Screenshot%202023-12-04%20193856.png)
+![pinpointDashboard](screenshots/pinpoint-dashboard-screen1.png)
+![pinpointDashboard](screenshots/pinpoint-dashboard-screen2.png)
+
+
 
 ## Setup
 
@@ -157,9 +168,15 @@ We have integrated AWS Cognito to enhance the security and user authentication o
 - When the user adds a task, their location is automatically retrieved and included as part of the saved Task.
 - On the Task Detail activity, the location of a Task is displayed if it exists.
 
+### Analytics
+- Basic, aggregated analytics are now collected using Amazon Pinpoint. View instances of events on the Analytics dashboard.
 
+### Text To Speech
+- Added a button on the Task Detail activity to read out the task's description using the Amplify Predictions library.
 
+## Overview
 
+In the latest lab (Day 13), the app has been enhanced with basic, aggregated analytics using Amazon Pinpoint. Additionally, a new text-to-speech feature has been implemented on the Task Detail activity, allowing users to have task descriptions read out loud.
 
 
 ## Espresso Testing
