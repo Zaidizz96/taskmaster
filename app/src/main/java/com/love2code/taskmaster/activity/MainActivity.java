@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.amplifyframework.analytics.AnalyticsEvent;
 import com.amplifyframework.api.graphql.model.ModelQuery;
 import com.amplifyframework.auth.AuthUser;
 import com.amplifyframework.auth.AuthUserAttribute;
@@ -28,6 +29,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -259,6 +261,13 @@ public class MainActivity extends AppCompatActivity {
     private void init() {
         sharedPreferences = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
         tasks = new ArrayList<>();
+        AnalyticsEvent event = AnalyticsEvent.builder()
+                .name("openedApp")
+                .addProperty("time" , Long.toString(new Date().getTime()))
+                .addProperty("tracking event" , "main activity")
+                .build();
+
+        Amplify.Analytics.recordEvent(event);
     }
 
     private void setupIntents() {

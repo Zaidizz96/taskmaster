@@ -1,4 +1,10 @@
 {
+  "analytics": {
+    "taskmaster": {
+      "providerPlugin": "awscloudformation",
+      "service": "Pinpoint"
+    }
+  },
   "api": {
     "taskmaster": {
       "dependsOn": [],
@@ -45,6 +51,18 @@
       },
       "providerPlugin": "awscloudformation",
       "service": "Cognito"
+    }
+  },
+  "predictions": {
+    "speechGenerator3bc8e8f0": {
+      "convertType": "speechGenerator",
+      "providerPlugin": "awscloudformation",
+      "service": "Polly"
+    },
+    "translateText374ed8e7": {
+      "convertType": "translateText",
+      "providerPlugin": "awscloudformation",
+      "service": "Translate"
     }
   },
   "storage": {

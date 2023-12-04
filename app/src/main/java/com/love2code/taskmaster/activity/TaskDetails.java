@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -17,7 +18,11 @@ import com.love2code.taskmaster.R;
 import com.squareup.picasso.Picasso;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Date;
 import java.util.Objects;
 
@@ -25,6 +30,7 @@ public class TaskDetails extends AppCompatActivity {
 
     public static final String TASK_ID_TAG = "taskID";
     private static final String TAG = "Task details activity";
+    private MediaPlayer mp = null;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -80,6 +86,9 @@ public class TaskDetails extends AppCompatActivity {
             gotToEditTaskActivity.putExtra(TASK_ID_TAG , taskId);
             startActivity(gotToEditTaskActivity);
         });
+
+        mp = new MediaPlayer();
+        setupSpeakButton();
     }
 
     private void displayImage(String imageS3Key){
@@ -99,6 +108,38 @@ public class TaskDetails extends AppCompatActivity {
                         Log.e(TAG, "Unable to get image from S3 for the product for S3 key: " + imageS3Key + " for reason: " + failure.getMessage());
                     }
             );
+        }
+    }
+
+    private void setupSpeakButton(){
+        Button speachButton = (Button) findViewById(R.id.convertTextToSpeach);
+        speachButton.setOnClickListener(b -> {
+            String taskDescription = ((TextView)findViewById(R.id.taskDetailDescription)).getText().toString();
+
+            Amplify.Predictions.convertTextToSpeech(
+                taskDescription,
+                    result -> playAudio(result.getAudioData()),
+                    error -> Log.e(TAG , "conversation failed")
+
+            );
+        });
+    }
+
+    private void playAudio(InputStream data) {
+        File mp3File = new File(getCacheDir(), "audio.mp3");
+
+        try (OutputStream out = new FileOutputStream(mp3File)) {
+            byte[] buffer = new byte[8 * 1_024];
+            int bytesRead;
+            while ((bytesRead = data.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesRead);
+            }
+            mp.reset();
+            mp.setOnPreparedListener(MediaPlayer::start);
+            mp.setDataSource(new FileInputStream(mp3File).getFD());
+            mp.prepareAsync();
+        } catch (IOException error) {
+            Log.e("MyAmplifyApp", "Error writing audio file", error);
         }
     }
 }
